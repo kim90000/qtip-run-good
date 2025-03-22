@@ -1,6 +1,15 @@
 # qtip-run-good
 
 
+
+
+Thanks DominikHil for the help
+https://github.com/Cornell-RelaxML/qtip/issues/23
+
+
+
+
+
 Edit file llama.py with what is in New Text Document.txt
 
 
