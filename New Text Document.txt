@@ -1,0 +1,68 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+class LlamaMLP(nn.Module):
+
+    def __init__(self, config, layer_idx):
+        super().__init__()
+        self.config = config
+        self.hidden_size = config.hidden_size
+        self.intermediate_size = config.intermediate_size
+
+        td_x = config.quip_params['td_x']
+        td_y = config.quip_params['td_y']
+        L = config.quip_params['L']
+        K = config.quip_params['K']
+        V = config.quip_params['V']
+        tlut_bits = config.quip_params['tlut_bits']
+        decode_mode = config.quip_params['decode_mode']
+
+        if config.quip_params['skip_list'] is None:
+            config.quip_params['skip_list'] = []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@add_start_docstrings(
+    "The bare LLaMA Model outputting raw hidden-states without any specific head on top.",
+    LLAMA_START_DOCSTRING,
+)
+class LlamaPreTrainedModel(PreTrainedModel):
+    config_class = LlamaConfig
+    base_model_prefix = "model"
+    supports_gradient_checkpointing = True
+    _no_split_modules = ["LlamaDecoderLayer"]
+    _skip_keys_device_placement = ["past_key_values"]
+    _supports_flash_attn_2 = False
+    _supports_sdpa = True
+    _supports_cache_class = True
+    _supports_quantized_cache = True
+    _supports_static_cache = True
