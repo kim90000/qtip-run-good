@@ -1,7 +1,7 @@
 # qtip-run-good
 
 
-
+Edit file llama.py with what is in New Text Document.txt
 
 
 llama.py
